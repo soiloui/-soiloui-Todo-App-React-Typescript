@@ -1,0 +1,26 @@
+.message {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	width: 90%;
+	min-height: 50px;
+
+	color: $col-1;
+	background: #fff;
+	border: 2px solid $col-1;
+	border-radius: 10px;
+
+	opacity: 0;
+	transition: all 0.35s ease-in-out;
+	transform: translate(-50%, -120%);
+	z-index: 999;
+
+	&--active {
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+}

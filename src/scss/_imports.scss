@@ -1,0 +1,13 @@
+// Import Variables
+@import 'vars';
+
+// Import Media
+@import 'media';
+
+// Import components styling
+@import './components/header';
+@import './components/message';
+@import './components/todoInputs';
+@import './components/todoList';
+@import './components/todoListToggler';
+@import './components/todoTask';

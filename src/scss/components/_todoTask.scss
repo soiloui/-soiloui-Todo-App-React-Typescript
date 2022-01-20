@@ -1,0 +1,42 @@
+.task {
+	margin-bottom: 1em;
+	padding: 0.5em 1em;
+	width: 80vw;
+	max-width: 100%;
+
+	font-size: 1.3rem;
+	border-bottom: 1px solid $col-1;
+
+	&__name {
+		flex-grow: 1;
+	}
+
+	&__bottom {
+		display: flex;
+		margin-top: 15px;
+
+		font-size: 1rem;
+	}
+
+	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.3em 0.5em;
+		margin-left: auto;
+
+		cursor: pointer;
+		font-size: 1.2rem;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			transform: scale(1.15) translateY(-2px);
+		}
+	}
+}
+
+@media (max-width: $sm-bp) {
+	.task {
+		gap: 10px;
+	}
+}

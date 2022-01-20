@@ -1,0 +1,30 @@
+.list-toggler {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+
+	position: fixed;
+	bottom: 0;
+	right: 5px;
+
+	transition: all 0.5s ease-in-out;
+	z-index: 99;
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #fff;
+	// color: $col-1;
+	// background: #fff;
+	border-radius: 50%;
+
+	&.active {
+		// color: #fff;
+		// background: $col-1;
+
+		color: $col-1;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
