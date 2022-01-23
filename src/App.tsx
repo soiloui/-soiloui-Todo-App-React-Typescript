@@ -1,19 +1,20 @@
 import './App.css';
 import { FC, useState, ChangeEvent } from 'react';
-import { TASK, DEADLINE, MESSAGE_DURATION } from './constants';
+import useLocalStorage from './hooks/useLocalStorage';
+import useMessage from './hooks/useMessage';
+import { TASK, DEADLINE } from './utils/constants';
 import Header from './components/Header';
 import TodoInputs from './components/TodoInputs';
 import TodoList from './components/TodoList';
 import TodoListToggler from './components/TodoListToggler';
 import Message from './components/Message';
-import useLocalStorage from './hooks/useLocalStorage';
+import { ITask } from './types/Interfaces';
 
 const App: FC = () => {
 	const [task, setTask] = useState<string>('');
 	const [deadline, setDeadline] = useState<Date>(new Date());
 	const [todoList, setTodo] = useLocalStorage('todoList', []);
-	const [message, setMessage] = useState<string>('');
-	const [messageTimeout, setMessageTimeout] = useState<number>();
+	const { message, showMessage } = useMessage();
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
 		if (e.target.name === TASK) setTask(e.target.value);
@@ -43,26 +44,11 @@ const App: FC = () => {
 
 	const completeTask = (keyValue: number): void => {
 		setTodo(
-			todoList.filter((task, index) => {
+			todoList.filter((task: ITask, index: number) => {
 				return index !== keyValue;
 			})
 		);
 		showMessage('Task removed.');
-	};
-
-	const showMessage = (message: string): void => {
-		if (messageTimeout) clearTimeout(messageTimeout);
-
-		setMessage(message);
-		const activeClass = 'message--active';
-		const messageElement = document.querySelector('.message');
-		messageElement?.classList.add(activeClass);
-
-		const newTimeout: number = window.setTimeout(() => {
-			messageElement?.classList.remove(activeClass);
-		}, MESSAGE_DURATION);
-
-		setMessageTimeout(newTimeout);
 	};
 
 	return (

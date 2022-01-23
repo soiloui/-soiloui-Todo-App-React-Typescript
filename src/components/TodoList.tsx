@@ -1,5 +1,5 @@
 import TodoTask from '../components/TodoTask';
-import { ITask } from '../Interfaces';
+import { ITask } from '../types/Interfaces';
 
 interface Props {
 	todoList: ITask[];

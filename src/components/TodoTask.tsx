@@ -1,4 +1,4 @@
-import { ITask } from '../Interfaces';
+import { ITask } from '../types/Interfaces';
 import { MdDelete } from 'react-icons/md';
 
 interface Props {

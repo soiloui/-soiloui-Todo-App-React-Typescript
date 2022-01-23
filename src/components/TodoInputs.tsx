@@ -1,6 +1,6 @@
 import { BiPlus } from 'react-icons/bi';
 import DatePicker from 'react-date-picker';
-import { TASK, DEADLINE } from '../constants';
+import { TASK, DEADLINE } from '../utils/constants';
 import { ChangeEvent } from 'react';
 
 interface Props {

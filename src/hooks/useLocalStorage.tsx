@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ITask } from '../Interfaces';
+import { ITask } from '../types/Interfaces';
 
-function getStorageValue(key: string, defaultValue: any) {
+function getStorageValue(key: string, defaultValue: []) {
 	if (typeof window !== 'undefined') {
 		const savedItemsJSON = localStorage.getItem(key);
 
@@ -17,7 +17,7 @@ function getStorageValue(key: string, defaultValue: any) {
 	}
 }
 
-const useLocalStorage = (key: string, defaultValue: any) => {
+const useLocalStorage = (key: string, defaultValue: []) => {
 	const [value, setValue] = useState<ITask[]>(() => {
 		return getStorageValue(key, defaultValue);
 	});
