@@ -41,13 +41,10 @@ const App: FC = () => {
 		showMessage('Task added successfuly!');
 	};
 
-	const completeTask = (taskName: string, deadline: Date): void => {
+	const completeTask = (keyValue: number): void => {
 		setTodo(
-			todoList.filter((task) => {
-				return (
-					task.taskName !== taskName ||
-					task.deadline.toDateString() !== deadline.toDateString()
-				);
+			todoList.filter((task, index) => {
+				return index !== keyValue;
 			})
 		);
 		showMessage('Task removed.');

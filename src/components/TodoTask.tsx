@@ -2,8 +2,9 @@ import { ITask } from '../Interfaces';
 import { MdDelete } from 'react-icons/md';
 
 interface Props {
+	keyValue: number;
 	task: ITask;
-	completeTask(taskName: string, deadline: Date): void;
+	completeTask(keyValue: number): void;
 }
 
 const getFormattedDate = (date: Date): string => {
@@ -14,7 +15,7 @@ const getFormattedDate = (date: Date): string => {
 	return `${month}.${day}.${year}`;
 };
 
-const TodoTask = ({ task, completeTask }: Props) => {
+const TodoTask = ({ task, completeTask, keyValue }: Props) => {
 	return (
 		<div className='task'>
 			<span className='task__name'>{task.taskName}</span>
@@ -24,7 +25,7 @@ const TodoTask = ({ task, completeTask }: Props) => {
 				<div
 					className='task__close'
 					onClick={() => {
-						completeTask(task.taskName, task.deadline);
+						completeTask(keyValue);
 					}}
 				>
 					<MdDelete />

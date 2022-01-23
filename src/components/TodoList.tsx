@@ -3,7 +3,7 @@ import { ITask } from '../Interfaces';
 
 interface Props {
 	todoList: ITask[];
-	completeTask(taskName: string, deadline: Date): void;
+	completeTask(keyValue: number): void;
 }
 
 const TodoList = ({ todoList, completeTask }: Props) => {
@@ -11,7 +11,9 @@ const TodoList = ({ todoList, completeTask }: Props) => {
 		<div className='todo__list'>
 			<div className='width-wrapper'>
 				{todoList.map((task: ITask, key: number) => {
-					return <TodoTask task={task} key={key} completeTask={completeTask} />;
+					return (
+						<TodoTask task={task} key={key} keyValue={key} completeTask={completeTask} />
+					);
 				})}
 			</div>
 		</div>
