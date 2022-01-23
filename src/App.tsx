@@ -1,18 +1,18 @@
 import './App.css';
 import { FC, useState, ChangeEvent } from 'react';
-import { ITask } from './Interfaces';
 import { TASK, DEADLINE, MESSAGE_DURATION } from './constants';
 import Header from './components/Header';
 import TodoInputs from './components/TodoInputs';
 import TodoList from './components/TodoList';
 import TodoListToggler from './components/TodoListToggler';
 import Message from './components/Message';
+import useLocalStorage from './hooks/useLocalStorage';
 
 const App: FC = () => {
 	const [task, setTask] = useState<string>('');
 	const [deadline, setDeadline] = useState<Date>(new Date());
-	const [todoList, setTodo] = useState<ITask[]>([]);
-	const [message, setMessage] = useState<string>('test');
+	const [todoList, setTodo] = useLocalStorage('todoList', []);
+	const [message, setMessage] = useState<string>('');
 	const [messageTimeout, setMessageTimeout] = useState<number>();
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
